@@ -1,6 +1,7 @@
 import RestrauntCard from "./RestrauntCard"
 import { restraunts } from "../utils/mockData"
 import { useState,useEffect } from "react"
+import Shimmer from "./Shimmer"
 const Body = () =>{
     const [resList,setResList] = useState(restraunts)
      const [resFilList,setResFilList] = useState(restraunts)
@@ -31,7 +32,7 @@ const Body = () =>{
         const filteredRes = resList.filter((res)=>res.info.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
          setResFilList(filteredRes)
     }
-    
+    if(resList=='null') return <Shimmer />
     return(
         <div className="body">
             <div>
@@ -45,6 +46,7 @@ const Body = () =>{
                )}
                   
             </div>
+         
 
         </div>
     )

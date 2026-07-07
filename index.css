@@ -63,5 +63,27 @@
 
 .search-btn{
     margin: 10px;
+   
+}
 
+.res-card-shimmer{
+    margin-top: 20px;
+    width:200px;
+    height: 200px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
+.menu{
+    text-align: center;
+}
+.item-title{
+    font-weight: bold;
+}
+.item-des-price{
+    font-size: small;
+}
+.link{
+    text-decoration: none;
+     color: inherit; 
 }
