@@ -87,3 +87,16 @@
     text-decoration: none;
      color: inherit; 
 }
+.user-card{
+    border: 1px solid black;
+     width: 500px;
+     height: auto;
+     margin-left:200px;
+     margin-top:40px;
+     text-align: center;
+     
+
+}
+.button{
+    width: 40px;
+}
