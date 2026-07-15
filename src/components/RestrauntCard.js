@@ -4,16 +4,27 @@ const RestrauntCard = ({res})=>{
   const  {id,name,cloudinaryImageId,costForTwo,cuisines,avgRating} = res
     return(
         <Link to={"/restrauntMenu/"+id} className="link">
-        <div  className="res-card" >
-            <img className="res-logo"  alt="res-log" src={CDN_LINK+cloudinaryImageId}/>
-            <h3 className="res-title">{name}</h3>
-            <h4 className="res-text">{cuisines}</h4>
-             <h4 className="res-text">{costForTwo}</h4>
-             <h4 className="res-text">{avgRating}</h4>
+        <div  className="w-52 border border-black" >
+            <img className="w-full h-auto"  alt="res-log" src={CDN_LINK+cloudinaryImageId}/>
+            <h3 className="pl-2 font-medium">{name}</h3>
+            <h4 className="mb-2 pl-2 text-xs">{cuisines}</h4>
+             <h4 className="mb-2 pl-2 text-xs">{costForTwo}</h4>
+             <h4 className="mb-2 pl-2 text-xs">{avgRating}</h4>
 
         </div>
         </Link>
     )
+}
+
+export const PromotedRestroCard = (Pizza)=>{
+    return (props)=>{
+        return(
+            <div>
+            <label className="absolute bg-green-400 text-white p-1 m-1">Veg</label>
+            <Pizza {...props}/>
+            </div>
+        )
+    }
 }
 
 export default RestrauntCard
