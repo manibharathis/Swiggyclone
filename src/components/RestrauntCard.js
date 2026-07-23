@@ -1,7 +1,11 @@
+
 import { CDN_LINK } from "../utils/constants"
 import { Link } from "react-router-dom"
+import userContext from "../utils/userContext"
+import { useContext } from "react"
 const RestrauntCard = ({res})=>{
   const  {id,name,cloudinaryImageId,costForTwo,cuisines,avgRating} = res
+  const {userName} = useContext(userContext)
     return(
         <Link to={"/restrauntMenu/"+id} className="link">
         <div  className="w-52 border border-black" >
@@ -10,7 +14,7 @@ const RestrauntCard = ({res})=>{
             <h4 className="mb-2 pl-2 text-xs">{cuisines}</h4>
              <h4 className="mb-2 pl-2 text-xs">{costForTwo}</h4>
              <h4 className="mb-2 pl-2 text-xs">{avgRating}</h4>
-
+             <h4 className="mb-2 pl-2 text-xs">{userName}</h4>
         </div>
         </Link>
     )

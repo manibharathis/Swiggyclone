@@ -1,15 +1,21 @@
 import RestrauntCard,{PromotedRestroCard} from "./RestrauntCard"
 import { restraunts } from "../utils/mockData"
-import { useState,useEffect } from "react"
+import { useState,useEffect,useContext } from "react"
 import Shimmer from "./Shimmer"
 import useOnlineStatus from "../utils/useOnlineStatus"
+import userContext from "../utils/userContext"
+
 const Body = () =>{
     const [resList,setResList] = useState(restraunts)
      const [resFilList,setResFilList] = useState(restraunts)
     const [searchText,setSearchText] = useState("")
+  
      const onlineStatus = useOnlineStatus();
      const PromotedRestroCardComp = PromotedRestroCard(RestrauntCard)
      console.log(onlineStatus)
+      
+     const {userName,setUserName} = useContext(userContext)
+     console.log("hello "+ setUserName)
     useEffect(()=>{
         const fetchData = async()=>{
              const data = await fetch('https://namastedev.com/api/v1/listRestaurants')
@@ -54,6 +60,8 @@ const Body = () =>{
                 <button className="m-2.5" onClick={searchRestraunts}>Search </button>
                 <button className="m-2.5 cursor-pointer" onClick={filterTopRated}>Top Rated Restraunts</button>
                  <button className="m-2.5 cursor-pointer" onClick={removeFilters}>Remove Filters</button>
+                 <input type="text" className=" m-2.5 border border-grey"  value={userName} onChange={(e)=>setUserName(e.target.value)} />
+               
             </div>
             <div className="flex m-2.5 flex-wrap gap-5">
                { resFilList.map((res)=>res.info.veg?<PromotedRestroCardComp key={res.info.id} res={res.info} />:<RestrauntCard key={res.info.id} res={res.info}/>
