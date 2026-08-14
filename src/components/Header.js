@@ -4,10 +4,10 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
 import appStore from "../utils/store";
-
-
+import foodHeaderSrc from "../Assets/foodHeader.jpg";
 const Header=()=>{
-    const foodHeaderSrc = new URL('../Assets/foodHeader.jpg', import.meta.url).href;
+    //const foodHeadersrc = "";
+  //  const foodHeaderSrc = new URL('../Assets/foodHeader.jpg', import.meta.url).href;
     const [loginText,setLoginText] = useState("Login")
     const status1 = useOnlineStatus()
   const {userName} = useContext(userContext)
