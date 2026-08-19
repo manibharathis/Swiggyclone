@@ -7,7 +7,7 @@ const RestrauntCard = ({res})=>{
   const  {id,name,cloudinaryImageId,costForTwo,cuisines,avgRating} = res
   const {userName} = useContext(userContext)
     return(
-        <Link to={"/restrauntMenu/"+id} className="link">
+        <Link data-testid="resCard"  to={"/restrauntMenu/"+id} className="link">
         <div  className="w-52 border border-black" >
             <img className="w-full h-auto"  alt="res-log" src={CDN_LINK+cloudinaryImageId}/>
             <h3 className="pl-2 font-medium">{name}</h3>
