@@ -20,7 +20,7 @@ const MenuItem = ({  items }) => {
     <>
       {items.map((item) => {
         return (
-          <div key={item.card.info.id} className="flex justify-between ">
+          <div data-testid="foodItems" key={item.card.info.id} className="flex justify-between ">
           <div >
             <p className="font-bold">{item.card.info.name}</p>
             <p className="text-sm">{item.card.info.description}</p>

@@ -11,6 +11,7 @@ import "@testing-library/jest-dom";
 // ✅ Correct import
 import { act } from "react";
 import mockResListData from "../mocks/mockResListData.json";
+import { click } from "@testing-library/user-event/dist/cjs/convenience/click.js";
 
 global.fetch = jest.fn(() => {
   return Promise.resolve({
@@ -55,6 +56,17 @@ it("testing filter", async () => {
   expect(aftertotalItems.length).toBe(1);
 });
 
-it("should filter top rated",()=>{
-    
+it("should filter top rated",async ()=>{
+    await act(async ()=>{
+        render(
+            <BrowserRouter>
+            <Body />
+            </BrowserRouter>
+        )
+    })
+
+    const filterButton = screen.getByRole('button',{name:"Top Rated Restraunts"})
+    await fireEvent.click(filterButton)
+    const totalItems = await screen.findAllByTestId("resCard")
+    expect(totalItems.length).toBe(5)
 })
